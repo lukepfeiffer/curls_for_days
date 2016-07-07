@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'authem'
 gem 'bourbon'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
