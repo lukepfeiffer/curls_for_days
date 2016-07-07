@@ -1,12 +1,15 @@
 Feature: User
 
   Scenario: User signs up
-    Given I am in the "users/new" page
-    And I fill in the "user_email" with "email@example.com"
+    Given I am on the "users/new" page
+    And I fill in "user_email" with "email@example.com"
     And I fill in "user_email" with "email@example.com"
     And I fill in "user_username" with "username"
     And I fill in "user_password" with "password"
     And I fill in "user_password_confirmation" with "password"
+    And I press "Sign Up"
+    Then I should be on the "/" page
+    And I should see "Sign up successful"
 
   Scenario: User signs in
     Given the following user:
