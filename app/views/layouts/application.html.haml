@@ -1,0 +1,30 @@
+%html
+  %head>
+    %title CurlsForDay
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    %link{:href => "//fonts.googleapis.com/css?family=Questrial", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "//fonts.googleapis.com/css?family=Sanchez:400italic,400", :rel => "stylesheet", :type => "text/css"}
+
+    %div.wrapper-for-content-outide-of-footer
+      %header.navigation{role: "banner"}
+        %div.navigation-wrapper
+          %a.logo{href: "javascript:void(0)"}
+            = image_tag "default_avatar.png", alt: 'Logo Image', href: '/'
+          %a#js-mobile-menu.navigation-menu-button{href: "javascript:void(0)"} MENU
+
+          %nav{role: 'navigation'}
+            %ul.navigation-menu.show#js-navigation-menu
+              %li.nav-link LINK
+              %li.nav-link LINK
+              %li.nav-link LINK
+
+          %div.navigation-tools
+            %div.search-bar
+              %form{role: 'search'}
+                %input{name: 'search', type: 'search', placeholder: 'Search'}
+                %button{type: 'submit'}
+                  %img{src: "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png", alt: "Search Icon"}
+  %body
+    = yield
