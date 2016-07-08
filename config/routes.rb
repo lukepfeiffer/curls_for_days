@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :users
+  resources :bloggers, only: [:index, :show]
 
   root to: 'pages#home'
 
