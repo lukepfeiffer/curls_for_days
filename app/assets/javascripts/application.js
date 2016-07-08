@@ -15,3 +15,4 @@
 //= require_tree .
 //= require user
 //= require alert
+//= require dropdown_menu
