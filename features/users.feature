@@ -20,6 +20,8 @@ Feature: User
     When I fill in "session_email" with "email@example.com"
     And I fill in "password" with "password"
     And I press "Sign In"
+    Then I should be on the "/" page
+    And I should see "Sign In Successful"
 
   Scenario: User signs out
     Given I am on the "/" page
