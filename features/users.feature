@@ -9,7 +9,7 @@ Feature: User
     And I fill in "user_password_confirmation" with "password"
     And I press "Sign Up"
     Then I should be on the "/" page
-    And I should see "Sign up successful"
+    And I should see "Sign Up Successful"
 
   Scenario: User signs in
     Given the following user:
