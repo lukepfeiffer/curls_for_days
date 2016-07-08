@@ -1,3 +1,11 @@
+Given /^I am signed in as a user$/ do
+  Fabricate(:user)
+  visit new_user_path
+  fill_in 'session_email', with: 'email@example.com'
+  fill_in 'session_password', with: 'password'
+  click_button 'Sign In'
+end
+
 When /^I follow "(.+)"$/ do |link_name|
   click_link link_name
 end

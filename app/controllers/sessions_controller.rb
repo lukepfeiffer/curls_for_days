@@ -8,4 +8,9 @@ class SessionsController < ApplicationController
       render new_user_path
     end
   end
+
+  def destroy
+    sign_out_user
+    redirect_to root_path(notice: 'successful_sign_out')
+  end
 end

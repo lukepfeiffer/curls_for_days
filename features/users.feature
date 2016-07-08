@@ -25,5 +25,6 @@ Feature: User
 
   Scenario: User signs out
     Given I am on the "/" page
-    And I follow "Sign Out"
-    Then I should see "Signed Out!"
+    And I am signed in as a user
+    When I follow "Sign Out"
+    Then I should see "Signed Out"
