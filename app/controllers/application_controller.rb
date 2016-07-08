@@ -4,10 +4,15 @@ class ApplicationController < ActionController::Base
   authem_for :user
 
   def set_notice
-    @specific_message = params[:notice]
-    @notice_message = "Sign Up Successful" if @specific_message == "successful_sign_up"
-    @notice_message = "Sign In Successful" if @specific_message == "successful_sign_in"
-    @notice_message = "Signed Out" if @specific_message == "successful_sign_out"
+    alert = params[:notice]
+
+    if alert == ("successful_sign_up" || "successful_sign_in" ||"successful_sign_out")
+      @alert_class = "flash-success"
+    end
+
+    @alert_message = "Sign Up Successful" if alert == "successful_sign_up"
+    @alert_message = "Sign In Successful" if alert == "successful_sign_in"
+    @alert_message = "Signed Out" if alert == "successful_sign_out"
   end
 
 end

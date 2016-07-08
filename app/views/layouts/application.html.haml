@@ -29,7 +29,9 @@
                 %input{name: 'search', type: 'search', placeholder: 'Search'}
                 %button{type: 'submit'}
                   %img{src: "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png", alt: "Search Icon"}
-  - if @notice_message.present?
-    %p{class: 'notice_message', id: @specific_message}= @notice_message
+  - if params[:notice].present?
+    %div{class: @alert_class}
+      %span= @alert_message
+
   %body
     = yield

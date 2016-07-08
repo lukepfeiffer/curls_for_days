@@ -12,6 +12,36 @@ body{
 #main-content{
   margin: 15px;
 }
+
+// Alert Message
+$base-spacing: 1.5em !default;
+$flashes: (
+  "alert": #fff6bf,
+  "error": #fbe3e4,
+  "notice": #e5edf8,
+  "success": #e6efc2,
+) !default;
+
+@each $flash-type, $color in $flashes {
+  .flash-#{$flash-type} {
+    background-color: $color;
+    color: shade($color, 60%);
+    display: block;
+    margin-bottom: $base-spacing / 2;
+    padding: $base-spacing / 2;
+    text-align: center;
+    width: 95%;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .flash-success{
+    border: 1px solid green;
+  }
+}
 // Navigation
 header.navigation {
   $base-border-color: gainsboro !default;
