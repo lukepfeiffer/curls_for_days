@@ -30,7 +30,7 @@
                 %button{type: 'submit'}
                   %img{src: "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png", alt: "Search Icon"}
   - if params[:notice].present?
-    %div{class: @alert_class}
+    %div{class: "#{@alert_class} alert"}
       %span= @alert_message
 
   %body
