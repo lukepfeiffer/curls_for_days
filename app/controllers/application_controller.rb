@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def set_notice
     alert = params[:notice]
 
-    if alert == ("successful_sign_up" || "successful_sign_in" ||"successful_sign_out")
+    if alert == ("successful_sign_up") || ("successful_sign_in") || ("successful_sign_out")
       @alert_class = "flash-success"
     end
 
