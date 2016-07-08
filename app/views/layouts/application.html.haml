@@ -21,14 +21,18 @@
               - if current_user.blank?
                 %li.nav-link= link_to 'Sign Up', new_user_path
               - else
-                %li.nav-link= link_to 'Sign Out', sign_out_path, method: :delete
-              .dropdown.nav-link
-                .dropdown-container
-                  %p.dropdown-button Blogger Commands
-                  %ul.dropdown-menu.dropdown-select
-                    %li= link_to 'Add Post', root_path
-                    %li= link_to 'View Posts', root_path
-                    %li= link_to 'Edit Profile', root_path
+                .dropdown
+                  .dropdown-container
+                    %p.dropdown-button Blogger Commands
+                    %ul.dropdown-menu.dropdown-select
+                      = link_to root_path do
+                        %li Add Post
+                      = link_to root_path do
+                        %li View Posts
+                      = link_to root_path do
+                        %li Edit Profile
+                      = link_to sign_out_path, method: :delete do
+                        %li Sign Out
 
           %div.navigation-tools
             %div.search-bar
