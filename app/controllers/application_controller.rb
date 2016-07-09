@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   authem_for :user
 
+  def truncate_post(string)
+    string_length = 250
+    string[/(\S+\s+){#{n}}/].strip
+  end
+
   def set_notice
     alert = params[:notice]
 
