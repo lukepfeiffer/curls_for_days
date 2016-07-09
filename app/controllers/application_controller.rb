@@ -3,11 +3,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   authem_for :user
 
-  def truncate_post(string)
-    string_length = 250
-    string[/(\S+\s+){#{n}}/].strip
-  end
-
   def set_notice
     alert = params[:notice]
 
@@ -15,9 +10,14 @@ class ApplicationController < ActionController::Base
       @alert_class = "flash-success"
     end
 
+    if alert == "unauthorized"
+      @alert_class = "flash-error"
+    end
+
     @alert_message = "Sign Up Successful" if alert == "successful_sign_up"
     @alert_message = "Sign In Successful" if alert == "successful_sign_in"
     @alert_message = "Signed Out" if alert == "successful_sign_out"
+    @alert_message = "You are not authorized to access that" if alert == "unauthorized"
   end
 
 end

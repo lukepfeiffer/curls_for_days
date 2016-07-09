@@ -1,0 +1,27 @@
+%h1
+= form_for blog_post do |f|
+  %fieldset
+    %dl
+
+      %dt= f.label :title
+      %dd= f.text_field :title
+
+      %dt= f.label :subtitle
+      %dd= f.text_field :title
+
+      %dt= f.label :hair_type
+      %dd
+        = f.selet :number, options_for_select(['1', '2', '3', '4'])
+        = f.select :lettter, options_for_select(['A', 'B', 'C'])
+
+      %dt= f.label :description
+      %dd= f.label :description
+
+      %dt= f.label :video_url
+      %dd= f.label :video_url
+
+      %dt= f.label :content
+      %dd= f.label :content
+
+  %fieldset.actions
+    = f.submit 'Create Post'
