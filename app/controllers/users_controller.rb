@@ -28,8 +28,6 @@ class UsersController < ApplicationController
     unauthourized_redirect_route
     if current_user.blank?
       redirect_to referrer_url.to_s
-    elsif !current_user.blogger?
-      redirect_to referrer_url.to_s
     elsif params[:id].present? && params[:id] != current_user.id
       redirect_to referrer_url.to_s
     end
