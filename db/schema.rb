@@ -29,12 +29,13 @@ ActiveRecord::Schema.define(version: 20160708230735) do
   end
 
   create_table "blog_posts", force: :cascade do |t|
-    t.string "title"
-    t.string "subtitle"
-    t.string "hair_type"
-    t.string "description"
-    t.string "video_url"
-    t.text   "content"
+    t.string  "title"
+    t.string  "subtitle"
+    t.string  "hair_type"
+    t.string  "description"
+    t.string  "video_url"
+    t.integer "user_id"
+    t.text    "content"
   end
 
   create_table "users", force: :cascade do |t|

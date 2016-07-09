@@ -12,10 +12,8 @@ class BlogPostsController < ApplicationController
     if current_user.blank?
       redirect_to @referrer_url.to_s
     elsif !current_user.blogger?
-      require 'pry'; binding.pry;
       redirect_to @referrer_url.to_s
     elsif params[:id] != current_user.id && params[:action] == (('edit') || ('update'))
-      require 'pry'; binding.pry;
       redirect_to @referrer_url.to_s
     end
   end

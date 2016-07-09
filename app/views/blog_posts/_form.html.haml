@@ -1,27 +1,29 @@
 %h1
-= form_for blog_post do |f|
+= form_for blog_post, html: {class: 'blog_post_form'} do |f|
   %fieldset
     %dl
 
+      = f.hidden_field :user_id, value: current_user.id
+
       %dt= f.label :title
-      %dd= f.text_field :title
+      %dd= f.text_field :title, class: 'small_field'
+
+      %dt= f.label :video_url
+      %dd= f.text_field :video_url, class: 'small_field'
+
+      %dt= f.label :hair_type
+      %dd
+        = f.select :hair_type, options_for_select(['1', '2', '3', '4'])
+        = f.select :hair_type, options_for_select(['A', 'B', 'C'])
 
       %dt= f.label :subtitle
       %dd= f.text_field :title
 
-      %dt= f.label :hair_type
-      %dd
-        = f.selet :number, options_for_select(['1', '2', '3', '4'])
-        = f.select :lettter, options_for_select(['A', 'B', 'C'])
-
       %dt= f.label :description
-      %dd= f.label :description
-
-      %dt= f.label :video_url
-      %dd= f.label :video_url
+      %dd= f.text_area :description
 
       %dt= f.label :content
-      %dd= f.label :content
+      %dd.content= f.text_area :content
 
   %fieldset.actions
     = f.submit 'Create Post'
