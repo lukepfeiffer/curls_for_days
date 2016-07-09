@@ -5,7 +5,7 @@
  *= require_self
 */
 body{
-  @include background(linear-gradient(#f5f5f5, #ebebe0) left repeat);
+  @include background(linear-gradient(#f04800, #f07000) left repeat);
   margin: 0;
 }
 
@@ -184,12 +184,13 @@ $flashes: (
 }
 // Navigation
 header.navigation {
+  border-bottom: 1px solid #000;
   $base-border-color: gainsboro !default;
   $base-border-radius: 3px !default;
   $action-color: #477DCA !default;
   $large-screen: em(860) !default;
   $navigation-padding: 1em;
-  $navigation-background: desaturate(darken(#477DCA , 20%), 30%);
+  $navigation-background: #F04800;
   $navigation-color: transparentize(white, 0.3);
   $navigation-color-hover: white;
   $navigation-height: 60px;
@@ -455,13 +456,16 @@ header.navigation {
   $comment-image-width: 4em;
   $comment-color: $base-font-color;
   $comment-background: lighten($action-color, 15%);
-  $comment-detail-color: transparentize($comment-color, 0.5);
+  $comment-detail-color: transparentize(#FFF269, 0.35);
   $comment-image-vert-alignment: top;
   border-bottom: 1px solid transparentize($comment-color, 0.9);
   display: table;
   margin-bottom: $base-spacing;
   padding-bottom: 1em;
-  width: 100%;
+  width: 85%;
+  margin-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
   .comment-image, .comment-content {
     display: table-cell;
     vertical-align: $comment-image-vert-alignment;
@@ -485,7 +489,7 @@ header.navigation {
   .comment-content {
     width: 100%;
     h1 {
-      font-size: 1em;
+      font-size: 2em;
       margin: 0 0 0.5em 0;
     }
     p {
