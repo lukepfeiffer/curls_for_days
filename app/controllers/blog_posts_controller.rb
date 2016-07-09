@@ -2,17 +2,18 @@ class BlogPostsController < ApplicationController
   before_action :authenticate_blogger, only: [:create, :new, :edit, :update]
 
   expose :blog_post
+
   expose :blog_posts do
     BlogPost.all
   end
-  I
+
   def authenticate_user
     unauthourized_redirect_route
     if current_user.blank?
       redirect_to referrer_url.to_s
     elsif !current_user.blogger?
       redirect_to referrer_url.to_s
-    elsif params[:id].present? && params[:id] != current_user.id
+    elsif params[:id].present? && params[:id] != current_user.id && params[:action] == ('edit') || ('update')
       redirect_to referrer_url.to_s
     end
   end
