@@ -4,9 +4,18 @@
 /*
  *= require_self
 */
-body{
-  @include background(linear-gradient(#f04800, #f07000) left repeat);
+#main{
+  @include background(linear-gradient(#f04800, #F07000) left repeat);
   margin: 0;
+  #content{
+    @include background(linear-gradient(#ED4700, #ED6F00) left repeat);
+    margin-top: 15px;
+    width: 80%;
+    border: 1px solid linear-gradient(#ED4700, #ED6F00);
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 .sign_up{

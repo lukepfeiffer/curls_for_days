@@ -54,5 +54,5 @@
     %div{class: "#{@alert_class} alert"}
       %span= @alert_message
 
-  %body
-    = yield
+  %body#main
+    %div#content= yield
