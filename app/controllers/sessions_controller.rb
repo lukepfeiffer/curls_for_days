@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       sign_in(user)
       redirect_to root_path(notice: "successful_sign_in")
     else
-      render new_user_path
+      redirect_to new_user_path
     end
   end
 

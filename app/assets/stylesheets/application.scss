@@ -79,146 +79,6 @@ fieldset{
   margin: 15px;
 }
 
-// Drop Down
-.dropdown{
-  a{
-    text-decoration: none;
-  }
-
-  $base-border-color: #1863CC !default;
-  $base-border-radius: 3px !default;
-  $base-line-height: 1.5em !default;
-  $base-background-color: #1863CC !default;
-  $dark-gray: #333 !default;
-  $large-screen: 53.75em !default;
-  $base-font-color: #000 !default;
-  $dropdown-color: $base-font-color;
-  $dropdown-description-color: lighten($dropdown-color, 40%);
-  $dropdown-border: 1px solid darken(#1863CC, 10%);
-  $dropdown-background: $base-background-color;
-  $dropdown-background-hover: darken($dropdown-background, 3%);
-  $dropdown-inner-border: 1px solid silver;
-  $dropdown-height: 58px;
-  $dropdown-padding: 1em;
-  $dropdown-distance-from-menu: 50px;
-  $dropdown-arrow-top-distance: 0;
-
-  line-height: $base-line-height;
-
-  .dropdown-container {
-    display: inline-block;
-    position: relative;
-    text-align: center;
-  }
-
-  // .dropdown-description {
-  //   background: $dropdown-background;
-  //   border-bottom: $dropdown-border;
-  //   border-bottom-left-radius: $base-border-radius;
-  //   border-left: $dropdown-border;
-  //   border-top-left-radius: $base-border-radius;
-  //   border-top: $dropdown-border;
-  //   color: $dropdown-description-color;
-  //   float: left;
-  //   font-size: 0.7em;
-  //   line-height: $dropdown-height;
-  //   margin: 0;
-  //   padding: 0 ($dropdown-padding / 2) 0 $dropdown-padding;
-
-  //   @include media($large-screen) {
-  //     font-size: 1em;
-  //   }
-  // }
-
-  .dropdown-button {
-    background: $dropdown-background;
-    border-bottom: $dropdown-border;
-    border-bottom-right-radius: $base-border-radius;
-    border-right: $dropdown-border;
-    border-top: $dropdown-border;
-    border-top-right-radius: $base-border-radius;
-    cursor: pointer;
-    float: right;
-    font-size: 0.7em;
-    line-height: $dropdown-height;
-    margin: 0;
-    padding: 0 ($dropdown-padding * 2.5) 0 ($dropdown-padding / 2);
-    position: relative;
-
-    @include media($large-screen) {
-      font-size: 1em;
-      padding: 0 ($dropdown-padding * 2.5) 0 ($dropdown-padding / 2);
-    }
-  }
-
-  .dropdown-button:hover {
-    background-color: $dropdown-background-hover;
-  }
-
-  .dropdown-button::after {
-    color: $base-font-color;
-    content: "\25BE";
-    display: block;
-    position: absolute;
-    right: $dropdown-padding;
-    top: $dropdown-arrow-top-distance;
-  }
-
-  .dropdown-menu {
-    background: $dropdown-background;
-    border: $dropdown-border;
-    border-radius: $base-border-radius;
-    box-shadow: 0 2px 2px transparentize(black, 0.8);
-    color: $dropdown-color;
-    cursor: pointer;
-    display: none;
-    margin: 0;
-    overflow: show;
-    padding: 0;
-    position: absolute;
-    right: 0;
-    top: $dropdown-distance-from-menu;
-    transition: all 0.2s ease-in-out;
-    width: 228px;
-    z-index: 99999;
-
-    &::before {
-      @include position(absolute, 0 1em 0 0);
-      color: $dropdown-background;
-      content: "\25b2";
-      font-size: 1.4em;
-      pointer-events: none;
-      text-shadow: 0 -2px 2px transparentize(black, 0.7);
-      top: -0.7em;
-    }
-  }
-
-  .dropdown-menu li {
-    border-bottom: $dropdown-inner-border;
-    color: $dropdown-color;
-    list-style: none;
-    padding: $dropdown-padding / 2;
-  }
-
-  .dropdown-menu li:hover {
-    background: $dropdown-background-hover;
-  }
-
-  .dropdown-menu li:first-child {
-    border-top-left-radius: $base-border-radius;
-    border-top-right-radius: $base-border-radius;
-  }
-
-  .dropdown-menu li:last-child {
-    border: 0;
-    border-bottom-left-radius: $base-border-radius;
-    border-bottom-right-radius: $base-border-radius;
-  }
-
-  .show-menu {
-    display: block;
-  }
-}
 // Alert Message
 $base-spacing: 1.5em !default;
 $flashes: (
@@ -254,34 +114,42 @@ header.navigation {
   $action-color: #477DCA !default;
   $large-screen: em(860) !default;
   $navigation-padding: 1em;
-  $navigation-background: #1863CC;
-  $navigation-color: transparentize(#000, 0.05);
-  $navigation-color-hover: white;
+  $navigation-background: #fff;
+  $navigation-color: transparentize(#4C2573, 0.05);
+  $navigation-color-hover: darken($navigation-color, 20%);
   $navigation-height: 60px;
   $navigation-nav-button-background: $action-color;
   $navigation-nav-button-background-hover: lighten($navigation-background, 10%);
   $navigation-nav-button-border: 1px solid lighten($navigation-nav-button-background, 20%);
   $navigation-search-background: lighten($navigation-background, 5);
-  $navigation-search-border: 1px solid darken($navigation-background, 5);
+  $navigation-search-border: 1px solid darken($navigation-background, 25%);
   $navigation-active-link-color: transparentize(white, 0.5);
   $navigation-submenu-padding: 1em;
   $navigation-submenu-width: 12em;
   $horizontal-bar-mode: $large-screen;
-  @include background(url('natural_hair.jpg'));
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: 400px 300px;
-  box-shadow: 50px 0px 50px 1px white inset;
-  height: 300px;
+  @include background(linear-gradient(#fff, #F0E8ff));
+  position: relative;
   min-height: $navigation-height;
   width: 100%;
   z-index: 999;
+  font-weight: bold;
+
+  .navigation-image{
+    float: right;
+    width: 35%;
+    img{
+      height: 35%;
+      width: 100%;
+    }
+  }
 
   .navigation-wrapper {
     @include clearfix;
-    // @include outer-container;
     position: relative;
     z-index: 9999;
+    position: absolute;
+    bottom: 0;
+    padding: 0px 10px;
   }
   .logo {
     float: left;
@@ -389,7 +257,7 @@ header.navigation {
     $search-bar-border: 1px solid $search-bar-border-color;
     $search-bar-background: lighten($search-bar-border-color, 10%);
     padding: 0.85em 0.85em 0.7em 0.6em;
-    width: 60%;
+    width: 100%;
     form {
       position: relative;
       input[type=search] {
@@ -397,8 +265,8 @@ header.navigation {
         border: $navigation-search-border;
         border-radius: $base-border-radius * 2;
         box-sizing: border-box;
-        color: $navigation-color;
-        font-size: 0.9em;
+        color: #000;
+        font-size: 1.2em;
         font-style: italic;
         margin: 0;
         padding: 0.5em 0.8em;
@@ -409,7 +277,6 @@ header.navigation {
       }
     }
     button[type=submit] {
-      background: $navigation-search-background;
       border: none;
       bottom: 0.3em;
       left: auto;
@@ -418,8 +285,9 @@ header.navigation {
       position: absolute;
       right: 0.3em;
       top: 0.3em;
+      background-color: orange;
       img {
-        height: 12px;
+        height: 18px;
         opacity: 0.7;
         padding: 1px;
       }
