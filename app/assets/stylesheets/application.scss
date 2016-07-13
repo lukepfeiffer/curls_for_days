@@ -5,16 +5,14 @@
  *= require_self
 */
 #main{
-  @include background(linear-gradient(#f04800, #F07000) left repeat);
+  font-family: Helvetica;
+  @include background(#4C2573);
   margin: 0;
   #content{
-    @include background(linear-gradient(#ED4700, #ED6F00) left repeat);
-    margin-top: 15px;
-    width: 80%;
-    border: 1px solid linear-gradient(#ED4700, #ED6F00);
-    border-radius: 10px;
-    margin-right: auto;
+    @include background(#FFF);
+    width: 70%;
     margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -26,9 +24,6 @@
 .sign_in{
   float: right;
   width: 49%;
-}
-
-.blog_post_form{
 }
 
 fieldset{
@@ -90,21 +85,20 @@ fieldset{
     text-decoration: none;
   }
 
-  float: right;
-  $base-border-color: gainsboro !default;
+  $base-border-color: #1863CC !default;
   $base-border-radius: 3px !default;
   $base-line-height: 1.5em !default;
-  $base-background-color: white !default;
+  $base-background-color: #1863CC !default;
   $dark-gray: #333 !default;
   $large-screen: 53.75em !default;
-  $base-font-color: $dark-gray !default;
+  $base-font-color: #000 !default;
   $dropdown-color: $base-font-color;
   $dropdown-description-color: lighten($dropdown-color, 40%);
-  $dropdown-border: 1px solid silver;
+  $dropdown-border: 1px solid darken(#1863CC, 10%);
   $dropdown-background: $base-background-color;
   $dropdown-background-hover: darken($dropdown-background, 3%);
   $dropdown-inner-border: 1px solid silver;
-  $dropdown-height: 40px;
+  $dropdown-height: 58px;
   $dropdown-padding: 1em;
   $dropdown-distance-from-menu: 50px;
   $dropdown-arrow-top-distance: 0;
@@ -255,14 +249,13 @@ $flashes: (
 }
 // Navigation
 header.navigation {
-  border-bottom: 1px solid #000;
   $base-border-color: gainsboro !default;
   $base-border-radius: 3px !default;
   $action-color: #477DCA !default;
   $large-screen: em(860) !default;
   $navigation-padding: 1em;
-  $navigation-background: #F04800;
-  $navigation-color: transparentize(white, 0.3);
+  $navigation-background: #1863CC;
+  $navigation-color: transparentize(#000, 0.05);
   $navigation-color-hover: white;
   $navigation-height: 60px;
   $navigation-nav-button-background: $action-color;
@@ -274,8 +267,12 @@ header.navigation {
   $navigation-submenu-padding: 1em;
   $navigation-submenu-width: 12em;
   $horizontal-bar-mode: $large-screen;
-  background-color: $navigation-background;
-  border-bottom: 1px solid darken($navigation-background, 10);
+  @include background(url('natural_hair.jpg'));
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 400px 300px;
+  box-shadow: 50px 0px 50px 1px white inset;
+  height: 300px;
   min-height: $navigation-height;
   width: 100%;
   z-index: 999;
@@ -325,6 +322,7 @@ header.navigation {
   }
 
   ul.navigation-menu {
+    text-align: center;
     clear: both;
     display: none;
     margin: 0 auto;
@@ -375,7 +373,6 @@ header.navigation {
     padding-bottom: 3px;
   }
 
-  // Far right items....
   .navigation-tools {
     background: #505050;
     clear: both;
@@ -384,14 +381,13 @@ header.navigation {
     @include media($horizontal-bar-mode) {
       background: transparent;
       clear: none;
-      float: right;
+      float: left;
     }
   }
   .search-bar {
     $search-bar-border-color: $base-border-color;
     $search-bar-border: 1px solid $search-bar-border-color;
     $search-bar-background: lighten($search-bar-border-color, 10%);
-    float: left;
     padding: 0.85em 0.85em 0.7em 0.6em;
     width: 60%;
     form {
@@ -527,14 +523,14 @@ header.navigation {
   $comment-image-width: 4em;
   $comment-color: $base-font-color;
   $comment-background: lighten($action-color, 15%);
-  $comment-detail-color: transparentize(#FFF269, 0.35);
+  $comment-detail-color: transparentize(#000, 0.35);
   $comment-image-vert-alignment: top;
   border-bottom: 1px solid transparentize($comment-color, 0.9);
   display: table;
   margin-bottom: $base-spacing;
   padding-bottom: 1em;
+  padding-top: 15px;
   width: 85%;
-  margin-top: 15px;
   margin-right: auto;
   margin-left: auto;
   .comment-image, .comment-content {
@@ -560,7 +556,7 @@ header.navigation {
   .comment-content {
     width: 100%;
     h1 {
-      color: transparentize(#FFF269, 0.35);
+      color: transparentize(#000, 0.20);
       font-size: 2em;
       margin: 0 0 0.5em 0;
     }
