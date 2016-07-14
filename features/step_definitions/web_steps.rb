@@ -7,7 +7,7 @@ Given /^I am signed in as a user$/ do
 end
 
 Given /^I am signed in as a blogger$/ do
-  Fabricate(:user)
+  Fabricate(:blogger)
   visit new_user_path
   fill_in 'session_email', with: 'blogger@example.com'
   fill_in 'session_password', with: 'password'

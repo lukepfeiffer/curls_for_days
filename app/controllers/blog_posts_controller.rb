@@ -2,9 +2,27 @@ class BlogPostsController < ApplicationController
   before_action :authenticate_blogger, only: [:create, :new, :edit, :update]
 
   expose :blog_post
-
   expose :blog_posts do
     BlogPost.all
+  end
+
+  def create
+    if blog_post.save
+      redirect_to blog_post_path(blog_post)
+    else
+      redirect_to :back
+    end
+  end
+
+  def blog_post_params
+    params.require(:blog_post).permit(
+      :content,
+      :description,
+      :hair_type,
+      :title,
+      :subtitle,
+      :video_url
+    )
   end
 
   def authenticate_blogger

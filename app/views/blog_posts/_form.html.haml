@@ -1,4 +1,3 @@
-%h1
 = form_for blog_post, html: {class: 'blog_post_form'} do |f|
   %fieldset
     %dl
@@ -17,7 +16,7 @@
         = f.select :hair_type, options_for_select(['A', 'B', 'C'])
 
       %dt= f.label :subtitle
-      %dd= f.text_field :title
+      %dd= f.text_field :subtitle
 
       %dt= f.label :description
       %dd= f.text_area :description
