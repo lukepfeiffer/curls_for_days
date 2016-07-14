@@ -257,6 +257,13 @@ header.navigation {
     }
   }
 
+  a{
+    padding: 0px 10px;
+    &:hover{
+      background-color: darken(#F0E8ff, 3%);
+    }
+  }
+
   .navigation-wrapper {
     @include clearfix;
     position: relative;
