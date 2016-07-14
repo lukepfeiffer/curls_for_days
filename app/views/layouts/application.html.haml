@@ -21,29 +21,22 @@
                 %li.nav-link= link_to 'Bloggers', bloggers_path
                 - if current_user.blank?
                   %li.nav-link= link_to 'Sign Up', new_user_path
-                - else
-                  .dropdown
+                - elsif current_user.present? && !current_user.blogger?
+                  %li.nav-link= link_to 'Edit Profile', edit_user_path(current_user)
+                  %li.nav-link= link_to 'Sign Out', sign_out_path, method: :delete
+                - elsif current_user.present? && current_user.blogger?
+                  %li.dropdown.nav-link
                     .dropdown-container
-                      - if current_user.present? && current_user.blogger?
-                        %p.dropdown-button Blogger Commands
-                        %ul.dropdown-menu.dropdown-select
-                          = link_to new_blog_post_path do
-                            %li Add Post
-                          = link_to root_path do
-                            %li View Posts
-                          = link_to root_path do
-                            %li Edit Profile
-                          = link_to sign_out_path, method: :delete do
-                            %li Sign Out
-                      - elsif current_user.present?
-                        %p.dropdown-button User Commands
-                        %ul.dropdown-menu.dropdown-select
-                          = link_to blog_posts_path do
-                            %li View Posts
-                          = link_to root_path do
-                            %li Edit Profile
-                          = link_to sign_out_path, method: :delete do
-                            %li Sign Out
+                      %p.dropdown-button Blogger Commands
+                      %ul.dropdown-menu.dropdown-select
+                        = link_to new_blog_post_path do
+                          %li Add Post
+                        = link_to blogger_path(current_user) do
+                          %li Your Posts
+                        = link_to edit_user_path(current_user) do
+                          %li Edit Profile
+                        = link_to sign_out_path, method: :delete do
+                          %li Sign Out
 
             %div.navigation-tools
               %div.search-bar
