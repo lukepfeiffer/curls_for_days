@@ -12,3 +12,11 @@
         = Formatter.date(Date.today)
         %a Edit post
       %p.comment-detail views: 6000
+
+= blog_posts.each do |post|
+  %div.comment
+    %div.comment-content
+      %h1 post.title
+      %h2 post.subtitle
+      %p post.description
+      %p post.content
