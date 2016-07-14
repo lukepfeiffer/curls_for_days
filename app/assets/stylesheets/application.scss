@@ -14,6 +14,20 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  li{
+    list-style-type: none;
+  }
+
+  #blogger_list{
+    width: 25%;
+    text-align: center;
+
+    img{
+      width: 100%;
+    }
+  }
+
 }
 
 .sign_up{

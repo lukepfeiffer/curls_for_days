@@ -1,1 +1,5 @@
-%h1 All Bloggers
+%div#blogger_list
+  - bloggers.each do |blogger|
+    %ul
+      %li= image_tag 'default_avatar.png'
+      %li= User.full_name(blogger)
