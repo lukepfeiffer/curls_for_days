@@ -1,5 +1,8 @@
 %div#blogger_list
   - bloggers.each do |blogger|
-    %ul
-      %li= image_tag 'default_avatar.png'
-      %li= User.full_name(blogger)
+    %div.blogger
+      .details
+        %li= link_to (image_tag 'default_avatar.png'), blogger_path(blogger.id, blogger: User.url_friendly(blogger))
+        .text
+          %li= link_to User.full_name(blogger), user_path(blogger.id, blogger: User.url_friendly(blogger))
+          %li Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

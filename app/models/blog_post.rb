@@ -1,2 +1,2 @@
-class BlogPost < ActiveRecord::Base
+class BlogPost < ApplicationRecord
 end

@@ -20,8 +20,22 @@
   }
 
   #blogger_list{
-    width: 25%;
-    text-align: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+
+    .blogger{
+      margin-top: 5px;
+      border-bottom: 1px solid darken(#F0E8ff, 2%);
+      .details{
+        width: 50%;
+        margin-right: auto;
+        margin-left: auto;
+        .text{
+          margin: 5px 0px 10px 5px;
+        }
+      }
+    }
 
     img{
       width: 100%;
