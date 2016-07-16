@@ -1,0 +1,15 @@
+%h1= blogger.username + "'s Posts"
+- blogger_posts.each do |post|
+  %div.comment
+    %div.comment-content
+      %h1= post.title
+      %p.comment-detail= post.description
+      .video= raw post.video_url.html_safe
+      %h2= post.subtitle
+      %p
+        = Formatter.string(post.content) + '...'
+        = link_to 'Read More', blog_post_path(post)
+      %p.comment-detail= "Written by: #{post.user.username}"
+      %p.comment-detail
+        = Formatter.date(Date.today)
+        = link_to 'Edit post', edit_blog_post_path(post) if current_user == post.user

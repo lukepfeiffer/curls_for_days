@@ -4,8 +4,11 @@ class BloggersController < UsersController
   expose :bloggers do
     User.where(blogger: true)
   end
-
-  def index
+  expose :blogger do
+    User.find(params[:id])
+  end
+  expose :blogger_posts do
+    BlogPost.where(user_id: params[:id])
   end
 
   def authenticate_blogger
@@ -18,8 +21,8 @@ class BloggersController < UsersController
   end
 
   def unauthorized_redirect_route
-      referrer_url = URI.parse(request.referrer) rescue URI.parse('/')
-
-      referrer_url.query = Rack::Utils.parse_nested_query(referrer_url.query).merge({notice: 'unauthorized'}).to_query
+    back_path = redirect_to(:back)
+    referrer_url = URI.parse(request.referrer) rescue URI.parse(back_path)
+    referrer_url.query = Rack::Utils.parse_nested_query(referrer_url.query).merge({notice: 'unauthorized'}).to_query
   end
 end
