@@ -1,5 +1,13 @@
 %div.comment
   %div.comment-content
     %h1= blog_post.title
-    %p= blog_post.description
-    %p= blog_post.content
+    %p.comment-detail= blog_post.description
+    .video= raw blog_post.video_url.html_safe
+    %h2= blog_post.subtitle
+    %p
+      = Formatter.string(blog_post.content) + '...'
+      = link_to 'Read More', blog_post_path(blog_post)
+    %p.comment-detail= "Written by: #{blog_post.user.username}"
+    %p.comment-detail
+      = Formatter.date(Date.today)
+      = link_to 'Edit blog_post', edit_blog_post_path(blog_post) if current_user == blog_post.user
