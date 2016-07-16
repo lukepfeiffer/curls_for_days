@@ -28,9 +28,15 @@
       margin-top: 5px;
       border-bottom: 1px solid darken(#F0E8ff, 2%);
       .details{
-        width: 50%;
+        width: 75%;
         margin-right: auto;
         margin-left: auto;
+        .profile_pic{
+          text-align: center;
+          img{
+            width: 50%;
+          }
+        }
         .text{
           font-size: 17px;
           margin: 5px 0px 10px 5px;
@@ -45,6 +51,24 @@
 
     img{
       width: 100%;
+    }
+  }
+
+  .select_type{
+    select{
+      background-color: lighten(#F0E8ff, 2%);
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 17px;
+      margin: 5px 0px;
+      padding: 5px;
+      width: 13%;
+      option{
+        background-color: lighten(#F0E8ff, 2%);
+        border-radius-bottom-left: 4px;
+        border-radius-bottom-right: 4px;
+      }
     }
   }
 }

@@ -11,9 +11,10 @@
       %dd= f.text_field :video_url, class: 'small_field'
 
       %dt= f.label :hair_type
-      %dd
+      %dd.select_type
         = f.select :hair_type, options_for_select(['1', '2', '3', '4'])
         = f.select :hair_type, options_for_select(['A', 'B', 'C'])
+        = f.select :hair_type, options_for_select(['Low Porosity', 'High Porosity'])
 
       %dt= f.label :subtitle
       %dd= f.text_field :subtitle
