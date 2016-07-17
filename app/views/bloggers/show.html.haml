@@ -17,7 +17,7 @@
       %p
         = Formatter.string(post.content) + '...'
         = link_to 'Read More', blog_post_path(post)
-      %p.comment-detail= "Written by: #{post.user.username}"
+      %p.comment-detail= link_to "Written by: #{post.user.username}"
       %p.comment-detail
         = Formatter.date(Date.today)
         = link_to 'Edit post', edit_blog_post_path(post) if current_user == post.user

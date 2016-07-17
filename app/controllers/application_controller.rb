@@ -3,6 +3,23 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   authem_for :user
 
+  expose :subscriptions do
+    current_user.subscriptions
+  end
+  expose :subscription_posts do
+    blogger_list = []
+    posts = []
+    subscriptions.each do |subscription|
+      blogger = User.find_by(id: subscription.blogger_id)
+      blogger_list << blogger
+    end
+    blogger_list.each do |blogger|
+      posts << blogger.blog_posts.where("created_at > ?", current_user.last_subscription_check)
+    end
+    posts.first.order('created_at ASC') if posts.present?
+  end
+
+
   def set_notice
     alert = params[:notice]
 

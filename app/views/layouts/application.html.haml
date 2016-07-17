@@ -21,7 +21,11 @@
                 - if current_user.blank?
                   %li.nav-link= link_to 'Sign Up', new_user_path
                 - elsif current_user.present? && !current_user.blogger?
-                  %li.nav-link= link_to 'Subscriptions', latest_posts_subscriptions_path
+                  %li.nav-link
+                    = link_to latest_posts_subscriptions_path do
+                      Subscriptions
+                      - if subscription_posts.present?
+                        = " (#{subscription_posts.count})" unless subscription_posts.count == 0
                   %li.nav-link= link_to 'Edit Profile', edit_user_path(current_user)
                   %li.nav-link= link_to 'Sign Out', sign_out_path, method: :delete
                 - elsif current_user.present? && current_user.blogger?
