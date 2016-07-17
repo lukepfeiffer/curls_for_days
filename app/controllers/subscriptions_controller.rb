@@ -3,6 +3,21 @@ class SubscriptionsController < ApplicationController
   expose :subscriptions do
     current_user.subscriptions
   end
+  expose :subscription_posts do
+    blogger_list = []
+    posts = []
+    subscriptions.each do |subscription|
+      blogger = User.find_by(id: subscription.blogger_id)
+      blogger_list << blogger
+    end
+    blogger_list.each do |blogger|
+      posts << blogger.blog_posts
+    end
+    posts.first.order('created_at ASC') if posts.present?
+  end
+
+  def latest_posts
+  end
 
   def create_subscription
     sub = Subscription.create(user_id: params[:user_id], blogger_id: params[:blogger_id])

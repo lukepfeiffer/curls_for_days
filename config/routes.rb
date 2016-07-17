@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   resources :users
   resources :bloggers, only: [:index, :show]
   resources :blog_posts
-  resources :subscriptions
+  resources :subscriptions do
+    collection do
+      get 'latest_posts'
+    end
+  end
 
   root to: 'blog_posts#index'
 
