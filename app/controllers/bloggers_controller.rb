@@ -11,6 +11,10 @@ class BloggersController < UsersController
     BlogPost.where(user_id: params[:id])
   end
 
+  def show
+    @subscription = Subscription.find_by(user_id: current_user.id, blogger_id: blogger.id)
+  end
+
   def authenticate_blogger
     unauthourized_redirect_route
     if current_user.blank?

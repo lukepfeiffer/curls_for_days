@@ -71,6 +71,50 @@
       }
     }
   }
+
+  .blogger_show{
+    text-align: center;
+    margin-top: 5px;
+    ul{
+      li{
+        display: inline-block;
+      }
+    }
+    img{
+      width: 30%;
+    }
+    .blogger_username{
+      font-weight: 550;
+      margin: 5px 0px 15px 0px;
+      font-size: 25px;
+    }
+    a{
+      margin: 10px;
+      text-decoration: none;
+      width: 25%;
+      color: #fff;
+      padding: 8px 17px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .unsubscribe_button{
+      background-color: red;
+    }
+
+    .unsubscribe_button:hover{
+      background-color: darken(red, 4%);
+    }
+
+    .subscribe_button{
+      background-color: #4CAF50;
+    }
+    .subscribe_button:hover{
+      background-color: #45a049;
+    }
+  }
 }
 
 #registry_table{
