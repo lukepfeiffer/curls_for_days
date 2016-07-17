@@ -7,10 +7,11 @@ class BlogPostsController < ApplicationController
   end
 
   def create
+    blog_post.user_id = current_user.id
     if blog_post.save
       redirect_to blog_post_path(blog_post)
     else
-      redirect_to :back
+      redirect_to :new
     end
   end
 

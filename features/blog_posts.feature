@@ -11,11 +11,17 @@ Feature: Blog posts
      And I should see "Alot of text"
 
   Scenario: User views blog post
-    Given the following blog_post:
+    Given the following user:
+      | email    | email@example.com |
+      | username | username          |
+      | password | password          |
+      | blogger  | true              |
+    And that user has the following blog_post:
       | title       | Foo     |
       | subtitle    | Bar     |
       | description | desc    |
       | content     | content |
+      | user_id     | 1       |
     And I am on the home page
     Then I should see "Foo"
     And I should see "Bar"
