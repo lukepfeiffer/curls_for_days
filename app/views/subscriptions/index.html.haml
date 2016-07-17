@@ -1,0 +1,15 @@
+%table.table-minimal#subscriptions_table
+  %thead
+    %tr
+      %th Username
+      %th Post Count
+      %th Actions
+  %tbody
+    - subscribed_to_bloggers.each do |blogger|
+      %tr
+        %td.user
+          = link_to (image_tag 'default_avatar.png'), blogger_path(blogger.id)
+          = link_to blogger.username, user_path(blogger.id), class: 'username'
+        %td 1000
+        %td
+          %a.unsubscribe_button{data: {url: subscription_path(Subscription.find_by(user_id: current_user.id, blogger_id: blogger.id).id)}} Unsubscribe

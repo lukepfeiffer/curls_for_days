@@ -6,14 +6,17 @@ class ApplicationController < ActionController::Base
   expose :subscriptions do
     current_user.subscriptions
   end
-  expose :subscription_posts do
+  expose :subscribed_to_bloggers do
     blogger_list = []
-    posts = []
     subscriptions.each do |subscription|
       blogger = User.find_by(id: subscription.blogger_id)
       blogger_list << blogger
     end
-    blogger_list.each do |blogger|
+    blogger_list
+  end
+  expose :subscription_posts do
+    posts = []
+    subscribed_to_bloggers.each do |blogger|
       posts << blogger.blog_posts.where("created_at > ?", current_user.last_subscription_check)
     end
     posts.first.order('created_at ASC') if posts.present?
