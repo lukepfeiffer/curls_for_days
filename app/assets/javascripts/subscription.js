@@ -22,11 +22,12 @@ $(document).ready(function(){
   })
 
   $('.unsubscribe_button').click(function(){
+    var button = $(this)
     var delete_path = $(this).data('url')
     $.ajax({type: "delete",
       url: delete_path,
       success: function(){
-        $('.unsubscribe_button').replaceWith("<a class= 'subscribe_button', data: {user_id: current_user.id, blogger_id: blogger.id}> Subscribe </a>")
+        button.replaceWith("<a class= 'subscribe_button', data: {user_id: current_user.id, blogger_id: blogger.id}> Subscribe </a>")
         $('.blogger_show').prepend("<div class= 'flash-success alert'> <span> Unsubscribed!</span></div>")
         setTimeout(function(){
           var query = window.location.search.substring(1)

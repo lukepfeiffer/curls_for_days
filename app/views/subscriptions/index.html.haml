@@ -2,7 +2,7 @@
   %thead
     %tr
       %th Username
-      %th Post Count
+      %th # Of Posts
       %th Actions
   %tbody
     - subscribed_to_bloggers.each do |blogger|
@@ -10,6 +10,6 @@
         %td.user
           = link_to (image_tag 'default_avatar.png'), blogger_path(blogger.id)
           = link_to blogger.username, user_path(blogger.id), class: 'username'
-        %td 1000
+        %td= blogger.blog_posts.count
         %td
           %a.unsubscribe_button{data: {url: subscription_path(Subscription.find_by(user_id: current_user.id, blogger_id: blogger.id).id)}} Unsubscribe

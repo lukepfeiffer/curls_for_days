@@ -6,10 +6,11 @@
 */
 #main{
   font-family: Helvetica;
-  @include background(#4C2573);
+  background-image: url('stripe.png');
   margin: 0;
   #content{
-    @include background(#FFF);
+    @include background(#F0E8FF);
+    box-shadow: 0px 0px 10px #000;
     width: 70%;
     margin-left: auto;
     margin-right: auto;
@@ -26,11 +27,11 @@
       .username{
         font-weight: 600;
         text-decoration: none;
-        color: #4C2573;
+        color: #000;
         font-size: 20px;
       }
       .username:hover{
-        color: darken(#4C2573, 5%);
+        color: lighten(#000, 5%);
         font-weight: bold;
       }
       img{
@@ -77,7 +78,7 @@
 
     .blogger{
       margin-top: 5px;
-      border-bottom: 1px solid darken(#F0E8ff, 2%);
+      border-bottom: 1px solid darken(#F0E8ff, 4%);
       .details{
         width: 75%;
         margin-right: auto;
@@ -92,7 +93,7 @@
           font-size: 17px;
           margin: 5px 0px 10px 5px;
           a{
-            color: #4C2573;
+            color: #000;
             font-weight: bold;
             text-decoration: none;
           }
@@ -250,7 +251,7 @@ fieldset{
   $base-background-color: transparent !default;
   $dark-gray: #333 !default;
   $large-screen: 53.75em !default;
-  $base-font-color: #4C2573 !default;
+  $base-font-color: #000 !default;
   $dropdown-color: $base-font-color;
   $dropdown-border: 1px solid darken(#fff, 10%);
   $dropdown-background: $base-background-color;
@@ -261,7 +262,7 @@ fieldset{
   $dropdown-distance-from-menu: 50px;
   $dropdown-arrow-top-distance: 0;
 
-  color: #4C2573;
+  color: #000;
   line-height: $base-line-height;
 
   .dropdown-container {
@@ -390,7 +391,7 @@ header.navigation {
   $large-screen: em(860) !default;
   $navigation-padding: 1em;
   $navigation-background: #fff;
-  $navigation-color: transparentize(#4C2573, 0.05);
+  $navigation-color: transparentize(#000, 0.05);
   $navigation-color-hover: darken($navigation-color, 20%);
   $navigation-height: 60px;
   $navigation-nav-button-background: $action-color;
@@ -408,6 +409,7 @@ header.navigation {
   width: 100%;
   z-index: 999;
   font-weight: bold;
+  border-bottom: 1px solid #ccc;
 
   .navigation-image{
     float: right;
