@@ -1,0 +1,18 @@
+%h1 Edit Profile
+= form_for user do |f|
+  %fieldset
+    %dl
+
+      %dt= f.label :email
+      %dd= f.text_field :email, placeholder: 'Email@example.com'
+
+      %dt= f.label :username
+      %dd= f.text_field :username
+
+      - if current_user.blogger?
+        %dt= f.label :description
+        %dd= f.text_area :description
+
+  %fieldset.actions
+    = f.submit 'Save Changes'
+
