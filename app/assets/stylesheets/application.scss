@@ -20,23 +20,22 @@
     margin-right: auto;
     margin-left: auto;
     width: 90%;
-    background-color: #F0E8FF;
     .user{
-      width: 20%;
+      width: 40%;
       margin-right: auto;
       margin-left: auto;
       .username{
         font-weight: 600;
         text-decoration: none;
         color: #000;
-        font-size: 20px;
+        font-size: 16px;
       }
       .username:hover{
         color: lighten(#000, 5%);
         font-weight: bold;
       }
       img{
-        width: 20%;
+        width: 12%;
         margin: 0px 10px 0px 0px;
       }
     }
@@ -823,7 +822,7 @@ article.type-system-geometric {
 .table-minimal {
   $base-border-color: gainsboro !default;
   $base-border-radius: 3px !default;
-  $base-background-color: white !default;
+  $base-background-color: #fff !default;
   $base-line-height: 1.5em !default;
   $base-spacing: 1.5em !default;
   $action-color: #477DCA !default;
@@ -835,7 +834,6 @@ article.type-system-geometric {
   $table-border-color: $base-border-color;
   $table-border: 1px solid $table-border-color;
   $table-background: $base-background-color;
-  $table-header-background: lighten($table-background, 10);
   $table-hover-background: darken($table-background, 2);
   $table-stripe-background: darken($table-background, 4);
   $table-stripe-background-hover: darken($table-stripe-background, 5);
@@ -856,7 +854,7 @@ article.type-system-geometric {
 
   thead {
     th {
-      background-color: $table-header-background;
+      background-color: $table-background;
       border-bottom: 0;
       padding: $table-padding;
       text-align: left;
@@ -868,25 +866,10 @@ article.type-system-geometric {
 
     td {
       border-bottom: 0;
-      border-top: 1px solid $table-border-color;
+      border-top: 1px solid #ccc;
       line-height: $base-line-height;
       padding: $table-padding;
 
-      button {
-        display: inline-block;
-        font-size: 0.7em;
-        line-height: $base-line-height;
-        margin-bottom: 0.3em;
-        margin-right: 0.5em;
-        outline: none;
-        padding: 0.3em 1em;
-        width: 100%;
-
-        @include media($medium-screen) {
-          margin-bottom: 0;
-          width: auto;
-        }
-      }
     }
   }
 }

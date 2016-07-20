@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
       blogger = User.find_by(id: subscription.blogger_id)
       blogger_list << blogger
     end
-    blogger_list
+    blogger_list.sort_by{|user| user.username.downcase}
   end
   expose :subscription_posts do
     posts = []

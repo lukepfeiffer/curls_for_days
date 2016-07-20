@@ -1,12 +1,13 @@
-.blogger_show
-  = image_tag 'default_avatar.png'
-  %ul
-    %li.blogger_username= blogger.username + "'s Posts"
-    %li
-      - if current_user.present? && User.subscribed?(current_user, blogger)
-        %a.unsubscribe_button{data: {url: subscription_path(@subscription.id)}} Unsubscribe
-      - else current_user.present?
-        %a.subscribe_button{data: {user_id: current_user.id, blogger_id: blogger.id}} Subscribe
+- unless current_user.present? && current_user.id == params[:id].to_i
+  .blogger_show
+    = image_tag 'default_avatar.png'
+    %ul
+      %li.blogger_username= blogger.username + "'s Posts"
+      %li
+        - if current_user.present? && User.subscribed?(current_user, blogger)
+          %a.unsubscribe_button{data: {url: subscription_path(@subscription.id)}} Unsubscribe
+        - else current_user.present?
+          %a.subscribe_button{data: {user_id: current_user.id, blogger_id: blogger.id}} Subscribe
 - blogger_posts.each do |post|
   %div.comment
     %div.comment-content

@@ -1,6 +1,7 @@
 class Formatter
   attr_reader :string
   attr_reader :date
+  attr_reader :array
 
   def initialize(date)
     @date = date
@@ -8,6 +9,10 @@ class Formatter
 
   def initialize(string)
     @string = string
+  end
+
+  def initialize(array)
+    @array = array
   end
 
   def self.date(date)
