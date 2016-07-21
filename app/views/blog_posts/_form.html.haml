@@ -8,6 +8,9 @@
       %dt= f.label :video_url
       %dd= f.text_field :video_url, class: 'small_field'
 
+      %dt= f.label :video_file
+      %dd= f.filepicker_field :filepicker_url, mimetypes: 'video/avi, video/quicktime, video/mpeg, video/mp4, video/ogg, video/webm, video/x-ms-wmv, video/x-flv, video/x-matroska, video/x-msvideo, video/x-dv'
+
       %dt= f.label :hair_type
       %dd.select_type
         = f.select :hair_type, options_for_select(['1', '2', '3', '4'])

@@ -22,7 +22,8 @@ class BlogPostsController < ApplicationController
       :hair_type,
       :title,
       :subtitle,
-      :video_url
+      :video_url,
+      :filepicker_url
     )
   end
 
