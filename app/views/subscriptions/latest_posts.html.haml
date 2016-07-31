@@ -1,7 +1,7 @@
 = link_to 'View Subscriptions', subscriptions_path
-- if subscription_posts.present?
+- if latest_subscription_posts.present? || old_subscription_posts.present?
   %h1 Latest Posts
-  - subscription_posts.each do |post|
+  - latest_subscription_posts.each do |post|
     %div.comment
       %div.comment-content
         %h1= post.title
@@ -15,5 +15,22 @@
         %p.comment-detail
           = Formatter.date(Date.today)
           = link_to 'Edit post', edit_blog_post_path(post) if current_user == post.user
+
+  %h1 Old Posts
+  - old_subscription_posts.each do |post|
+    %div.comment
+      %div.comment-content
+        %h1= post.title
+        %p.comment-detail= post.description
+        .video= raw post.video_url.html_safe if post.video_url.present?
+        %h2= post.subtitle
+        %p
+          = Formatter.string(post.content) + '...'
+          = link_to 'Read More', blog_post_path(post)
+        %p.comment-detail= "Written by: #{post.user.username}"
+        %p.comment-detail
+          = Formatter.date(Date.today)
+          = link_to 'Edit post', edit_blog_post_path(post) if current_user == post.user
+
 - else
   %p Looks like you have no subscriptions

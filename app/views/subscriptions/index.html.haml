@@ -5,7 +5,7 @@
       %th # Of Posts
       %th Actions
   %tbody
-    - subscribed_to_bloggers.each do |blogger|
+    - subscribed_to_bloggers.sort_by{|user| user.username.downcase}.each do |blogger|
       %tr
         %td.user
           = link_to (image_tag 'default_avatar.png'), blogger_path(blogger.id)

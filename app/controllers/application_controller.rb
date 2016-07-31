@@ -12,12 +12,19 @@ class ApplicationController < ActionController::Base
       blogger = User.find_by(id: subscription.blogger_id)
       blogger_list << blogger
     end
-    blogger_list.sort_by{|user| user.username.downcase}
+    blogger_list
   end
-  expose :subscription_posts do
+  expose :latest_subscription_posts do
     posts = []
     subscribed_to_bloggers.each do |blogger|
       posts << blogger.blog_posts.where("created_at > ?", current_user.last_subscription_check)
+    end
+    posts.first.order('created_at ASC') if posts.present?
+  end
+  expose :old_subscription_posts do
+    posts = []
+    subscribed_to_bloggers.each do |blogger|
+      posts << blogger.blog_posts.where("created_at < ?", current_user.last_subscription_check)
     end
     posts.first.order('created_at ASC') if posts.present?
   end
