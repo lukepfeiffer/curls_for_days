@@ -15,4 +15,5 @@
 //= require_tree .
 //= require user
 //= require alert
+//= require blog_post
 //= require dropdown_menu

@@ -1,0 +1,17 @@
+%div.comment{data: {id: post.id}}
+  .edit_form
+    = render partial: 'form'
+  %div.comment-content
+    %h1= post.title
+    %p.comment-detail= post.description
+    - if post.video_url.present?
+      .video= raw post.video_url.html_safe
+    %h2= post.subtitle
+    %p
+      = Formatter.string(post.content) + '...'
+      = link_to 'Read More', blog_post_path(post)
+    %p.comment-detail= "Written by: #{post.user.username}"
+    %p.comment-detail
+      = Formatter.date(post.created_at)
+      |
+      %a.edit_button Edit Post
