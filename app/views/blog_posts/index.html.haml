@@ -3,10 +3,7 @@
     %div.comment-content
       %h1= post.title
       %p.comment-detail= post.description
-      - if post.video_url.present?
-        .video= raw post.video_url.html_safe
-      - if post.filepicker_url.present?
-        .video= video_tag(post.filepicker_url)
+      .video= raw post.video_url.html_safe if post.video_url.present?
       %h2= post.subtitle
       %p
         = Formatter.string(post.content) + '...'
